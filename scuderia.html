@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Ferrari Style</title>
+    <link rel="stylesheet" href="scuderi.css">
+    <script>
+        function showVideo() {
+            var modal = document.getElementById('video-modal');
+            var video = document.getElementById('modal-video');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Bloquer le défilement de la page
+            video.play(); // Démarrer la vidéo
+        }
+
+        function closeVideo() {
+            var modal = document.getElementById('video-modal');
+            var video = document.getElementById('modal-video');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Réactiver le défilement de la page
+            video.pause(); // Arrêter la vidéo
+            video.currentTime = 0; // Revenir au début de la vidéo
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-left" onclick="showAlert()">
+                <img src="C:\Users\user\Downloads\logo.png" alt="Logo Gauche">
+            </div>
+            <div class="nav-buttons">
+                <ul class="nav-links">
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Racing</a></li>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">Car</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="logo-center" onclick="showVideo()">
+                <img src="C:\Users\user\Downloads\scuderavitora.png" alt="Logo Centre">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher...">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <video id="background-video" autoplay loop muted>
+            <source src="C:\Users\user\Desktop\scuderia.mp4" type="video/mp4">
+        </video>
+
+        <div class="content">
+            <!-- Votre contenu ici -->
+        </div>
+    </main>
+
+    <!-- Modal pour la vidéo -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVideo()">&times;</span>
+            <video id="modal-video" controls>
+                <source src="C:\Users\user\Downloads\Rick Astley - Never Gonna Give You Up (Official Music Video).mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function playAndPause() {
+            var video = document.getElementById('background-video');
+            var btn = document.getElementById('btnVideo');
+            if (video.paused) {
+                video.play();
+                btn.textContent = 'Pause II';
+            } else {
+                video.pause();
+                btn.textContent = 'Play ▶️';
+            }
+        }
+    </script>
+</body>
+</html>
